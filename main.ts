@@ -164,37 +164,37 @@ namespace IotLoRaNode {
         //basic.showNumber(1)
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+mode=0\r\n");
+        serial.writeString("AT+MODE=0\r\n");
         serial.readLine()
 
         //basic.showNumber(2)
         basic.pause(75)
         //Set Device Address
-        serial.writeString("at+set_config=dev_addr:" + devaddress + "\r\n");
+        serial.writeString("AT+SET_CONFIG=DEV_ADDR:" + devaddress + "\r\n");
         serial.readLine()
 
         //basic.showNumber(3)
         basic.pause(75)
         //Set the network session key
-        serial.writeString("at+set_config=nwks_key:" + netswk + "\r\n");
+        serial.writeString("AT+SET_CONFIG=NWKS_KEY:" + netswk + "\r\n");
         serial.readLine()
 
         //basic.showNumber(4)
         basic.pause(75)
         //Set the application session key
-        serial.writeString("at+set_config=apps_key:" + appswk + "\r\n");
+        serial.writeString("AT+SET_CONFIG=APPS_KEY:" + appswk + "\r\n");
         serial.readLine()
 
         //basic.showNumber(5)
         basic.pause(75)
         //Set the data rate
-        serial.writeString("at+set_config=dr:" + datarate + "\r\n");
+        serial.writeString("AT+SET_CONFIG=DR:" + datarate + "\r\n");
         serial.readLine()
 
         //basic.showNumber(6)
         basic.pause(75)
         //"Join" the LoRaWAN Network in ABP Mode
-        serial.writeString("at+join=abp\r\n");
+        serial.writeString("AT+JOIN=ABP\r\n");
         serial.readLine()
 
         //Display on the screen that LoRa is ready.
@@ -225,36 +225,36 @@ namespace IotLoRaNode {
         //basic.showNumber(1)
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+mode=0\r\n");
+        serial.writeString("AT+MODE=0\r\n");
         serial.readLine()
 
         //basic.showNumber(2)
         basic.pause(75)
         //Set Device Address
-        serial.writeString("at+set_config=dev_eui:" + deveui + "\r\n");
+        serial.writeString("AT+SET_CONFIG=DEV_EUI:" + deveui + "\r\n");
         serial.readLine()
 
         //basic.showNumber(3)
         basic.pause(75)
         //Set the network session key
-        serial.writeString("at+set_config=app_eui:" + appeui + "\r\n");
+        serial.writeString("AT+SET_CONFIG=APP_EUI:" + appeui + "\r\n");
         serial.readLine()
 
         //basic.showNumber(4)
         basic.pause(75)
         //Set the application session key
-        serial.writeString("at+set_config=app_key:" + appkey + "\r\n");
+        serial.writeString("AT+SET_CONFIG=APP_KEY:" + appkey + "\r\n");
         serial.readLine()
 
         basic.pause(75)
         //Set the data rate
-        serial.writeString("at+set_config=dr:0\r\n");
+        serial.writeString("AT+SET_CONFIG=DR:0\r\n");
         serial.readLine()
 
         //basic.showNumber(6)
         basic.pause(75)
         //"Join" the LoRaWAN Network in ABP Mode
-        serial.writeString("at+join=otaa\r\n");
+        serial.writeString("AT+JOIN=OTAA\r\n");
         serial.readLine()
 
         //Display on the screen that LoRa is ready.
@@ -398,7 +398,7 @@ namespace IotLoRaNode {
          * Transmit Message
          */
 
-        serial.writeString("at+send=0,1," + payload + "\r\n");
+        serial.writeString("AT+SEND=0,1," + payload + "\r\n");
         serial.readUntil(serial.delimiters(Delimiters.NewLine))
         basic.pause(100)
         serial.readUntil(serial.delimiters(Delimiters.NewLine))
@@ -421,7 +421,7 @@ namespace IotLoRaNode {
         serial.readLine()
         basic.pause(75)
 
-        serial.writeString("at+band=" + regionsList[regionVal] + "\r\n");
+        serial.writeString("AT+BAND=" + regionsList[regionVal] + "\r\n");
         serial.readUntil(serial.delimiters(Delimiters.NewLine))
         basic.showIcon(IconNames.Diamond)
         pins.digitalWritePin(DigitalPin.P0, 1)
@@ -433,37 +433,37 @@ namespace IotLoRaNode {
         basic.showIcon(IconNames.Yes)
         //basic.showNumber(1)
         if (regionsList[regionVal] == "US915") {
-            serial.writeString("at+set_config=ch_mask:0,FF00\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:0,FF00\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:1,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:1,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:2,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:2,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:3,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:3,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:4,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:4,0000\r\n");
             serial.readLine()
             basic.pause(75)
         }
 
         else if (regionsList[regionVal] == "AU915") {
-            serial.writeString("at+set_config=ch_mask:0,FF00\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:0,FF00\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:1,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:1,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:2,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:2,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:3,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:3,0000\r\n");
             serial.readLine()
             basic.pause(75)
-            serial.writeString("at+set_config=ch_mask:4,0000\r\n");
+            serial.writeString("AT+SET_CONFIG=CH_MASK:4,0000\r\n");
             serial.readLine()
             basic.pause(75)
         }
@@ -476,7 +476,7 @@ namespace IotLoRaNode {
          * Sleep Mode
          */
 
-        serial.writeString("at+sleep\r\n");
+        serial.writeString("AT+SLEEP\r\n");
         serial.readUntil(serial.delimiters(Delimiters.NewLine))
     }
     //%blockId="IotLoRaNode_WakeUp" block="Wake from Sleep" advanced=true 
@@ -496,7 +496,7 @@ namespace IotLoRaNode {
          */
 
         let gpioVal = state ? 1 : 0;
-        serial.writeString("at+gpio=" + pinNum + "," + gpioVal + "\r\n");
+        serial.writeString("AT+GPIO=" + pinNum + "," + gpioVal + "\r\n");
         basic.showString(serial.readUntil(serial.delimiters(Delimiters.NewLine)))
     }
 
@@ -506,7 +506,7 @@ namespace IotLoRaNode {
          * GPIO Read
          */
         let boolVal = false;
-        serial.writeString("at+gpio=" + pinNum + "\r\n");
+        serial.writeString("AT+GPIO=" + pinNum + "\r\n");
         let value = parseInt(serial.readUntil(serial.delimiters(Delimiters.NewLine)).charAt(2))
         let gpioVal = value ? true : false;
         return gpioVal;
@@ -518,7 +518,7 @@ namespace IotLoRaNode {
          * GPIO ADC
          */
 
-        serial.writeString("at+rd_adc=" + pinNum + "\r\n");
+        serial.writeString("AT+RD_ADC=" + pinNum + "\r\n");
 
         let value = serial.readString()
         let value2 = value.substr(2, 4)
@@ -557,7 +557,7 @@ namespace IotLoRaNode {
         //basic.showNumber(1)
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+mode=1\r\n");
+        serial.writeString("AT+MODE=1\r\n");
         serial.readLine()
         //Display on the screen that LoRa is ready.
         basic.showString("P2P Ready")
@@ -571,7 +571,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+rf_config=" + frequency + "," + spreadingfactor + "," + bandwidth + "," + codingRate + "," + preamlen + "," + power + "\r\n");
+        serial.writeString("AT+RF_CONFIG=" + frequency + "," + spreadingfactor + "," + bandwidth + "," + codingRate + "," + preamlen + "," + power + "\r\n");
         serial.readLine()
 
     }
@@ -582,7 +582,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+txc=" + count + "," + interval + "," + data + "\r\n");
+        serial.writeString("AT+TXC=" + count + "," + interval + "," + data + "\r\n");
         serial.readLine()
 
     }
@@ -592,7 +592,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+rxc\r\n");
+        serial.writeString("AT+RXC\r\n");
         serial.readLine()
 
     }
@@ -603,7 +603,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+txstop\r\n");
+        serial.writeString("AT+TXSTOP\r\n");
         serial.readLine()
 
     }
@@ -614,7 +614,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+rxstop\r\n");
+        serial.writeString("AT+RXSTOP\r\n");
         serial.readLine()
 
     }
@@ -625,7 +625,7 @@ namespace IotLoRaNode {
 
         basic.pause(75)
         //Set to use LoRaWAN Mode
-        serial.writeString("at+set_config=dr:" + spreadingfactor + "\r\n");
+        serial.writeString("AT+SET_CONFIG=DR:" + spreadingfactor + "\r\n");
         serial.readLine()
 
     }
@@ -637,7 +637,7 @@ namespace IotLoRaNode {
         basic.pause(75)
         //Set to use single channel gateway
 
-        serial.writeString("at+set_config=ch_mask:0,000" + eufreq.toString() + "\r\n");
+        serial.writeString("AT+SET_CONFIG=CH_MASK:0,000" + eufreq.toString() + "\r\n");
         serial.readLine()
 
     }
@@ -646,8 +646,6 @@ namespace IotLoRaNode {
 
     //End2
 
-
-
-
-
 }
+
+
